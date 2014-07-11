@@ -1,3 +1,45 @@
+## Author Comments
+
+This section is by La Monte H.P. Yarroll
+<piggy+coursera@google.com>. This repository is in fulfillment of
+Course Project 1 of Exploratory Data Analysis presented by Johns
+Hopkins and Coursera.
+
+### Size estimate
+
+We assume 8 bytes per column. The two text fields are slightly larger, but this is just a swag.
+
+2075259 * 9 * 8 = 149418648 or about 150Meg.
+
+### Design considerations
+
+The instructions tell us that the code for reading in the data and
+generating the png should be included in each source file. This leads
+me to replicate code rather than abstract it. This makes it easier to
+evaluate each plot file separately.
+
+Without such constraints, I would put all the graph-generating
+routines and the data reading code in a separate file which would be
+included into each of the plot-generating files. Indeed, two of the
+graphs in plot4.png are from plot2.png and plot3.png.
+
+### Running the code.
+
+Copy <a href="https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip">Electric power consumption</a> [20Mb]
+to "household_power_consumption.zip".
+
+From R run the following:
+
+source("plot1.R")
+source("plot2.R")
+source("plot3.R")
+source("plot4.R")
+
+Each step will take a while as each file unpacks and loads the whole
+dataset.
+
+What follows is the original assignment.
+
 ## Introduction
 
 This assignment uses data from

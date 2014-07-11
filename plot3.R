@@ -1,8 +1,5 @@
-# Create plot1.png. See README.md for details.  Copy
-# https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
-# to "household_power_consumption.zip in the current directory and
-# then from R,
-# source("plot1.R")
+# Create plot3.png. See README.md for details.
+# See README.md.
 #
 # by La Monte H.P. Yarroll <piggy+coursera@google.com>
 # July 2014
@@ -19,9 +16,6 @@ d <- read.table(unz(paste0(filename, ".zip"), paste0(filename, ".txt")),
 smalld <- d[d$Date == "1/2/2007" | d$Date == "2/2/2007", ]
 smalld$datetime <- strptime(paste(smalld$Date, smalld$Time),
                             "%d/%m/%Y %H:%M:%S")
-
-# The reference images have a completely transparent background.
-par(bg=rgb(red=1, green=1, blue=1, alpha=0))
 
 # Actually produce plot3.
 png(filename="plot3.png", width=480, height=480)
