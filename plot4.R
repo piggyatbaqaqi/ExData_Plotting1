@@ -23,8 +23,26 @@ smalld$datetime <- strptime(paste(smalld$Date, smalld$Time),
 # The reference images have a completely transparent background.
 par(bg=rgb(red=1, green=1, blue=1, alpha=0))
 
-# Actually produce plot1.png.
-png(filename="plot1.png", width=480, height=480)
-hist(smalld$Global_active_power, col="red",
-     xlab="Global Active Power (kilowatts)", main="Global Active Power")
+# Actually produce plot4.png.
+png(filename="plot4.png", width=480, height=480)
+# Make a 2X2 matrix, filled column-first.
+par(mfcol = c(2, 2))
+# plot2 (4-1)
+with(smalld, plot(datetime, Global_active_power,
+                  xlab="", ylab="Global Active Power (kilowatts)", type="l"))
+
+# plot3 (4-2)
+with(smalld, plot(datetime, Sub_metering_1, type="l",
+                  ylab="Energy sub metering", xlab=""))
+with(smalld, lines(datetime, Sub_metering_2, type="l", col="red"))
+with(smalld, lines(datetime, Sub_metering_3, type="l", col="blue"))
+legend("topright", lty=1, col=c("black", "red", "blue"),
+       legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+
+# plot4-3
+with(smalld, plot(datetime, Voltage, type="l"))
+
+# plot4-4
+with(smalld, plot(datetime, Global_reactive_power, type="l"))
+
 dev.off()

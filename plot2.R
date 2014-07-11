@@ -23,8 +23,8 @@ smalld$datetime <- strptime(paste(smalld$Date, smalld$Time),
 # The reference images have a completely transparent background.
 par(bg=rgb(red=1, green=1, blue=1, alpha=0))
 
-# Actually produce plot1.png.
-png(filename="plot1.png", width=480, height=480)
-hist(smalld$Global_active_power, col="red",
-     xlab="Global Active Power (kilowatts)", main="Global Active Power")
+# Actually produce plot2.png.
+png(filename="plot2.png", width=480, height=480)
+with(smalld, plot(datetime, Global_active_power,
+                  xlab="", ylab="Global Active Power (kilowatts)", type="l"))
 dev.off()
